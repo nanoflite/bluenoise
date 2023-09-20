@@ -1,0 +1,19 @@
+{
+  "name": "bluenoise",
+  "main": "bluenoise.js",
+  "version": "1.0.0",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "canvas": "^2.11.2"
+  },
+  "type": "module",
+  "scripts": {
+    "create_examples": "node examples.js"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Johan Van den Brande",
+    "url": "https://vandenbran.de"
+  }
+}
