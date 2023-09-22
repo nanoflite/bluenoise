@@ -74,7 +74,14 @@ class Bluenoise {
         this._phase3()
         const imageData = this.rankMap.toImageData()
         this.onPhase('phase3', imageData)
-        return imageData
+    }
+
+    imageData() {
+        return this.rankMap.toImageData()
+    }
+
+    uint8Data() {
+        return this.rankMap.toUint8Array()
     }
 
 }
@@ -82,7 +89,8 @@ class Bluenoise {
 function bluenoise(width, height, {sigma= 1.5, initialPoints= 0.1, onPhase = () => {}} = {} ) {
     const dim = dimension(width, height)
     const blue = new Bluenoise(dim, sigma, initialPoints, onPhase)
-    return blue.calculate()
+    blue.calculate()
+    return blue
 }
 
 export { bluenoise }

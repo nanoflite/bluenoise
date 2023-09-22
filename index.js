@@ -13,6 +13,6 @@ const data = bluenoise(width, height, {
     onPhase: (name, data) => {
         setImage(name, data)
     }
-})
+}).imageData()
 
 setImage('phase3', data)

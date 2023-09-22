@@ -34,6 +34,45 @@ These samples are generated using the default settings:
 
 ![256x256](./bluenoise_256x256.png)
 
+## Image magick
+
+Use the script `magick_threshold.js` to generate a `thresholds.xml` file or use the supplied example.
+
+```
+$> node magick_threshold.js > threshholds.xml
+```
+
+Copy the `thresholds.xml` file to the image magick config folder.
+
+```
+$> mkdir -p ~/.config/ImageMagick
+$> cp thresholds.xml ~/.config/ImageMagick/
+$> convert -list threshold
+...
+Map              Alias        Description
+----------------------------------------------------
+bn16x16                       Bluenoise dither map 16x16
+bni16x16                      Bluenoise dither map inverse 16x16
+bn32x32                       Bluenoise dither map 32x32
+bni32x32                      Bluenoise dither map inverse 32x32
+bn64x64                       Bluenoise dither map 64x64
+bni64x64                      Bluenoise dither map inverse 64x64
+bn128x128                     Bluenoise dither map 128x128
+bni128x128                    Bluenoise dither map inverse 128x128
+bn256x256                     Bluenoise dither map 256x256
+bni256x256                    Bluenoise dither map inverse 256x256
+```
+
+Use the following command to dither an image:
+
+```
+$> convert tadaa_gray_50.jpg -ordered-dither bn64x64 y64.jpg
+```
+
+Example of a dithered image using `bn256x256`...
+
+![bn256x256](./example_bn256x256.jpg)
+
 ## Copyright
 
 (c) 2023 Johan Van den Brande

@@ -29,6 +29,18 @@ class Rank {
         })
         return data
     }
+
+    toUint8Array() {
+        let max = Number.MIN_VALUE
+        this.dim.foreach((p)=>{
+            max = Math.max(max, this.map[p.index()])
+        })
+        const data = new Uint8ClampedArray(this.map.length)
+        this.dim.foreach((p)=>{
+            data[p.index()] = Math.floor(this.map[p.index()] * 255 / max)
+        })
+        return data
+    }
 }
 
 function rank(dim) {
